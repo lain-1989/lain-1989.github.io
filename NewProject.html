@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Who's lain?</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+            color: #52718c;
+
+            /* dreamy blue background */
+            background:
+                radial-gradient(circle at 15% 15%, #ffffffaa, transparent 25%),
+                radial-gradient(circle at 85% 25%, #c8e9f5aa, transparent 30%),
+                radial-gradient(circle at 30% 90%, #dceef4aa, transparent 30%),
+                linear-gradient(
+                    135deg,
+                    #dceff6,
+                    #a9cfe2,
+                    #c9dce9,
+                    #e5f2f5
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* soft dreamy glow */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(255,255,255,.5),
+                    transparent 40%
+                );
+
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        /* FLOATING DECORATIONS */
+
+        .sky-decoration {
+            position: fixed;
+            color: rgba(255,255,255,.75);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cloud1 {
+            top: 8%;
+            left: 5%;
+            font-size: 55px;
+        }
+
+        .cloud2 {
+            top: 30%;
+            right: 4%;
+            font-size: 45px;
+        }
+
+        .star1 {
+            top: 18%;
+            right: 18%;
+            font-size: 20px;
+        }
+
+        .star2 {
+            bottom: 15%;
+            left: 8%;
+            font-size: 25px;
+        }
+
+
+        /* MAIN CARD */
+
+        .container {
+            position: relative;
+            z-index: 1;
+
+            width: 90%;
+            max-width: 720px;
+
+            margin: 50px auto;
+            padding: 25px;
+
+            background: rgba(245, 252, 255, .60);
+
+            border: 1px solid rgba(255,255,255,.8);
+
+            border-radius: 38px;
+
+            box-shadow:
+                0 20px 60px rgba(67, 111, 137, .18),
+                inset 0 0 30px rgba(255,255,255,.5);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        /* TOP DECORATION */
+
+        .top-decoration {
+            text-align: center;
+
+            color: #ffffff;
+            font-size: 18px;
+
+            letter-spacing: 10px;
+
+            margin-bottom: 15px;
+
+            text-shadow: 0 2px 8px #7199af55;
+        }
+
+
+        /* TITLE */
+
+        h1 {
+            margin: 5px 0 10px;
+
+            text-align: center;
+
+            color: #557994;
+
+            font-size: 35px;
+
+            font-weight: normal;
+
+            text-shadow:
+                0 2px 10px rgba(255,255,255,.9);
+        }
+
+
+        .intro {
+            text-align: center;
+
+            color: #7190a5;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+
+            min-height: 300px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    rgba(181,216,231,.35),
+                    rgba(238,248,250,.65)
+                );
+
+            border: 1px solid rgba(255,255,255,.8);
+
+            box-shadow:
+                inset 0 0 30px rgba(255,255,255,.6);
+        }
+
+
+        /* hero image */
+
+        .hero img {
+            width: 100%;
+            height: 300px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+            opacity: .92;
+
+            filter:
+                saturate(.8)
+                brightness(1.08)
+                contrast(.9);
+
+            transition: .5s ease;
+        }
+
+        .hero:hover img {
+            transform: scale(1.03);
+        }
+
+
+        /* dreamy white overlay */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,.05),
+                    rgba(216,239,247,.25)
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* little caption on image */
+
+        .hero-text {
+            position: absolute;
+
+            bottom: 20px;
+            left: 25px;
+
+            z-index: 2;
+
+            padding: 10px 18px;
+
+            color: #55758c;
+
+            background: rgba(255,255,255,.68);
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        /* ABOUT CARD */
+
+        .about {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,.55);
+
+            border:
+                1px solid rgba(255,255,255,.8);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 10px 30px rgba(73,112,135,.10);
+        }
+
+
+        .about h2 {
+            margin-top: 0;
+
+            color: #62839a;
+
+            font-weight: normal;
+        }
+
+
+        .about p {
+            color: #607d91;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+
+        .divider {
+            margin: 18px 0 5px;
+
+            color: #9bbbc9;
+
+            letter-spacing: 5px;
+
+            font-size: 13px;
+        }
+
+
+        /* IMAGE COLLECTION */
+
+        .memories-title {
+            text-align: center;
+
+            margin-top: 35px;
+            margin-bottom: 15px;
+
+            color: #62839a;
+
+            font-weight: normal;
+        }
+
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 14px;
+        }
+
+
+        .gallery-card {
+            padding: 8px;
+
+            background: rgba(255,255,255,.6);
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255,255,255,.9);
+
+            box-shadow:
+                0 8px 25px rgba(70,110,135,.12);
+
+            transition: .35s ease;
+        }
+
+
+        .gallery-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+
+            box-shadow:
+                0 15px 30px rgba(70,110,135,.18);
+        }
+
+
+        .gallery-card img {
+            width: 100%;
+            height: 170px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            display: block;
+
+            filter:
+                saturate(.75)
+                brightness(1.08);
+        }
+
+
+        /* MENU */
+
+        .menu {
+            margin-top: 35px;
+        }
+
+
+        .menu-title {
+            text-align: center;
+
+            color: #66869b;
+
+            margin-bottom: 15px;
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .menu-item {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin: 12px 0;
+
+            padding: 17px 20px;
+
+            text-decoration: none;
+
+            color: #5c7b90;
+
+            background:
+                rgba(255,255,255,.55);
+
+            border:
+                1px solid rgba(255,255,255,.9);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 7px 20px rgba(70,110,135,.08);
+
+            transition: .3s ease;
+        }
+
+
+        .menu-item .heart {
+            color: #9fc4d4;
+
+            font-size: 19px;
+        }
+
+
+        .menu-item .arrow {
+            color: #8daebe;
+
+            font-size: 25px;
+        }
+
+
+        .menu-item:hover {
+            transform: translateX(6px);
+
+            background: rgba(255,255,255,.78);
+
+            box-shadow:
+                0 10px 25px rgba(70,110,135,.15);
+        }
+
+
+        /* FOOTER */
+
+        .bottom {
+            margin-top: 30px;
+
+            text-align: center;
+
+            color: #8aa9b9;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+
+                margin: 25px auto;
+
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .hero,
+            .hero img {
+                height: 250px;
+            }
+
+            .gallery-card img {
+                height: 130px;
+            }
+            . guestbook {
+                color: #8aa9b9;
+                
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING SKY DECORATIONS -->
+
+    <div class="sky-decoration cloud1">☁︎</div>
+    <div class="sky-decoration cloud2">☁︎</div>
+
+    <div class="sky-decoration star1">✦</div>
+    <div class="sky-decoration star2">✧</div>
+
+
+    <main class="container">
+
+
+        <div class="top-decoration">
+            ˚₊‧ ☁︎ ✦ ♡ ✦ ☁︎ ‧₊˚
+        </div>
+
+
+        <h1>
+            My Little Webpage♡
+        </h1>
+
+
+        <p class="intro">
+            a tiny corner of the internet ☁︎
+        </p>
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero">
+
+            <img src="Tete.jpg">
+
+            <div class="hero-text">
+                自殺するつもりです！
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <section class="about">
+
+            <h2>
+                ♡ Hello ♡
+            </h2>
+
+            <p>
+             I'm Lain and i create this webpage
+                <br><br>
+            
+
+                This is a tiny place where I can
+                keep my favorite things, memories,
+                hobbies, and little pieces of my world🩵.
+            </p>
+
+
+            <div class="divider">
+                
+<a href="kawaaii.html" class="menu-item">
+            <span>♡</span>
+            <span>About Me</span>
+            <span>›</span>
+        </a>
+
+
+        <a href="hobbies.html" class="menu-item">
+            <span>✧</span>
+            <span>My Hobbies</span>
+            <span>›</span>
+        </a>
+
+
+        <a href="favorites.html" class="menu-item">
+            <span>♡</span>
+            <span>My Dreams</span>
+            <span>›</span>
+        </a>
+
+
+        <a href="memories.html" class="menu-item">
+            <span>☁︎</span>
+            <span>My Memories</span>
+            <span>›</span>
+        </a>
+        
+    <div class="guestbook"><h2> Guestbook </h2>
+
+<p>
+    Welcome to my little corner!<br>
+    Leave me a note before you go 
+</p>
+
+<form
+    action="https://formspree.io/f/xjyvvnwk"
+    method="POST"
+>
+
+    <textarea
+        name="message"
+        placeholder="Note... ♡"
+        required
+    ></textarea>
+
+    <button type="submit">
+         Leave a Note 
+    </button>
+
+</form>
+
+
+
+
+            </div>
+        </section>
+    </main>
+</body>
+</html>
