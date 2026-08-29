@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+            
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Memories ♡</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family: Georgia, serif;
+
+            color: #62452f;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    #f8f0dc 0px,
+                    #f8f0dc 18px,
+                    #eee4c9 18px,
+                    #eee4c9 36px
+                );
+
+            min-height: 100vh;
+        }
+        /*   MEMORY GRID*/
+
+.content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    background: #fff9e9;
+
+    border:
+        3px dashed #cdbb98;
+
+    margin: 18px 12px;
+}
+
+
+/*  MEMORY CARDS*/
+
+.memory {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 220px;
+
+    background: #fffdf4;
+
+    border:
+        3px solid #70442e;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        3px 4px 0 #d8c4a0;
+
+    transition: 0.3s ease;
+}
+
+
+.memory:hover {
+
+    transform:
+        translateY(-5px)
+        rotate(-1deg);
+
+    box-shadow:
+        5px 8px 0 #cbb38b;
+}
+
+
+/*  MEMORY IMAGE*/
+
+.memory img {
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border: none;
+
+    border-radius: 0;
+}
+
+
+/* MEMORY WORDS*/
+
+.memory p {
+
+    margin: 0;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #70462f;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    line-height: 1.6;
+
+    background: #fffdf4;
+}
+
+
+        /*  OUTER FRAME*/
+
+        .room {
+
+            width: 92%;
+            max-width: 850px;
+
+            margin: 25px auto;
+
+            padding: 18px;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #75472f 0px,
+                    #75472f 5px,
+                    #81553b 5px,
+                    #81553b 10px
+                );
+
+            border: 10px solid #60371f;
+
+            border-radius: 45px;
+
+            box-shadow:
+                0 8px 0 #422516,
+                0 15px 35px rgba(70,40,20,0.3);
+        }
+
+
+        /* INNER PAPER*/
+
+        .inside {
+
+            background: #fff9e9;
+
+            border: 4px solid #fffdf5;
+
+            border-radius: 35px;
+
+            overflow: hidden;
+
+            box-shadow:
+                inset 0 0 0 2px #dbc7a2;
+        }
+
+
+        /*   TOP HEADER*/
+
+        header {
+
+            position: relative;
+
+            padding: 70px 20px 35px;
+
+            text-align: center;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #8a573b 0px,
+                    #8a573b 45px,
+                    #70432e 45px,
+                    #70432e 90px
+                );
+
+            border-bottom: 4px solid #59331f;
+        }
+
+
+        /* little awning */
+
+        .awning {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 45px;
+
+            display: flex;
+        }
+
+
+        .awning span {
+
+            flex: 1;
+
+            height: 45px;
+
+            border-radius:
+                0 0 22px 22px;
+
+            border-bottom:
+                2px solid #c7b38e;
+        }
+
+
+        .awning span:nth-child(odd) {
+            background: #fff5d9;
+        }
+
+
+        .awning span:nth-child(even) {
+            background: #b6c778;
+        }
+
+
+        /* TITLE PLAQUE*/
+
+        .title-box {
+
+            display: inline-block;
+
+            padding: 15px 55px;
+
+            background:
+                linear-gradient(
+                    #9c6045,
+                    #79462f
+                );
+
+            color: #fff7e5;
+
+            border: 4px solid #c88b68;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 5px 0 #56301f,
+                inset 0 0 0 2px #70402b;
+        }
+
+
+        .title-box h1 {
+
+            margin: 0;
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                2px 2px #613822;
+        }
+
+
+        .title-box p {
+
+            margin: 4px 0 0;
+
+            font-size: 14px;
+
+            color: #fff1d8;
+        }
+
+
+        /*
+           NAV TABS*/
+
+        .tabs {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 12px 15px 0;
+
+            background: #fff9e9;
+        }
+
+
+        .tab {
+
+            padding: 13px 28px;
+
+            background: #fffdf5;
+
+            border:
+                3px dashed #cdbb98;
+
+            border-bottom: none;
+
+            border-radius:
+                20px 20px 0 0;
+
+            color: #77543a;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            font-size: 16px;
+        }
+
+
+        .tab:hover {
+            background: #f2e7c9;
+        }
+
+
+        /*
+           DARK INTRO PANEL
+        */
+
+        .intro-panel {
+
+            margin: 0 12px;
+
+            padding: 20px 25px;
+
+            color: #fff8e9;
+
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    #704329 0px,
+                    #704329 12px,
+                    #805238 12px,
+                    #805238 24px
+                );
+
+            border:
+                4px solid #fff9e9;
+
+            outline:
+                2px solid #8b674d;
+
+            border-radius:
+                0 25px 25px 25px;
+        }
+
+
+        .intro-panel h2 {
+
+            margin: 0 0 5px;
+
+            font-size: 28px;
+
+            color: #fff9e8;
+        }
+
+
+        .intro-panel p {
+
+            margin: 4px 0;
+
+            color: #f5e5c8;
+
+            font-size: 14px;
+        }
+
+
+        /* 
+           MAIN CONTENT
+    */
+
+        .content {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+            padding: 25px;
+
+            background: #fff9e9;
+
+            border:
+                3px dashed #cdbb98;
+
+            margin: 18px 12px;
+        }
+
+
+        /* 
+           MEMORY CARDS
+    */
+
+        .memory {
+
+            padding: 8px;
+
+            background: #fffdf4;
+
+            border:
+                3px solid #70442e;
+
+            border-radius: 12px;
+
+            box-shadow:
+                3px 4px 0 #d8c4a0;
+
+            transition: 0.3s ease;
+        }
+
+
+        .memory:hover {
+
+            transform:
+                translateY(-5px)
+                rotate(-1deg);
+
+            box-shadow:
+                5px 8px 0 #cbb38b;
+        }
+
+
+        .memory img {
+
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            object-fit: cover;
+
+            display: block;
+
+            border:
+                2px solid #d4bd95;
+
+            border-radius: 5px;
+        }
+
+
+        .memory p {
+
+            margin: 10px 4px 6px;
+
+            text-align: center;
+
+            color: #70462f;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        /* 
+           SMALL DECORATION
+    */
+
+        .decoration {
+
+            text-align: center;
+
+            color: #9b754f;
+
+            font-size: 15px;
+
+            letter-spacing: 5px;
+
+            padding: 5px;
+        }
+
+
+        /* 
+           BACK BUTTON
+    */
+
+        .back-area {
+
+            text-align: center;
+
+            padding: 5px 20px 30px;
+        }
+
+
+        .back {
+
+            display: inline-block;
+
+            padding: 12px 35px;
+
+            color: #fff8e8;
+
+            background:
+                #805038;
+
+            border:
+                3px solid #603720;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 0 #4d2b1b;
+
+            transition: 0.2s;
+        }
+
+
+        .back:hover {
+
+            transform:
+                translateY(-2px);
+
+            background: #9b6044;
+        }
+
+
+        /*
+           FOOTER*/
+
+        footer {
+
+            padding: 18px;
+
+            text-align: center;
+
+            color: #fff5df;
+
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    #704329 0px,
+                    #704329 12px,
+                    #805238 12px,
+                    #805238 24px
+                );
+
+            border-top:
+                4px solid #fff9e9;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* 
+           MOBILE
+        */
+
+        @media (max-width: 650px) {
+
+            .room {
+
+                width: 95%;
+
+                margin: 15px auto;
+
+                padding: 10px;
+
+                border-width: 7px;
+
+                border-radius: 30px;
+            }
+
+
+            .title-box {
+
+                padding: 13px 25px;
+            }
+
+
+            .title-box h1 {
+
+                font-size: 27px;
+            }
+
+
+            .tabs {
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+            }
+
+
+            .tab {
+
+                white-space: nowrap;
+
+                padding: 11px 18px;
+            }
+
+
+            .content {
+
+                grid-template-columns: 1fr;
+
+                padding: 18px;
+            }
+
+
+            .intro-panel h2 {
+
+                font-size: 23px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="room">
+
+<div class="inside">
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="awning">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="title-box">
+
+            <h1>
+                Welcome! 
+            </h1>
+
+            <p>
+                little memories from my world
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+        <a href="NewProject.html"
+           class="tab">
+            ♡ home
+        </a>
+
+        <a href="kawaaii.html"
+           class="tab">
+            ♡ about
+        </a>
+
+        <a href="memories.html"
+           class="tab">
+            ☰ memories
+        </a>
+
+    </div>
+
+
+
+    <!-- INTRO -->
+
+    <div class="intro-panel">
+
+        <h2>
+             My Memories
+        </h2>
+
+        <p>
+            little moments I want to keep
+        </p>
+
+        <p>
+            Some tiny pieces of time that
+            I don't want to forget. 
+        </p>
+
+    </div>
+
+
+
+    <div class="decoration">
+        ✦　♡　✦　♡　✦
+    </div>
+
+
+
+    <!-- MEMORY GRID -->
+
+    <div class="content">
+
+
+        <div class="memory">
+
+            <img src="bff.jpg"
+                 alt="Memory">
+
+            <p>
+        The Only picture i had with my Newfriends and i cherished every moments with them 
+            </p>
+
+        </div>
+
+
+
+        <div class="memory">
+
+            <img src="lapiz.jpg"
+                 alt="Memory">
+
+            <p>
+                ♡ On going♡
+            </p>
+
+        </div>
+
+
+
+        <div class="memory">
+
+            <img src="lapiz.jpg"
+                 alt="Memory">
+
+            <p>
+                ♡ On going ♡
+            </p>
+
+        </div>
+
+
+
+        <div class="memory">
+
+            <img src="lapiz.jpg"
+                 alt="Memory">
+
+            <p>
+                ♡ On going♡
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- BACK -->
+
+    <div class="back-area">
+
+        <a href="NewProject.html"
+           class="back">
+
+            ♡ Back ♡
+
+        </a>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        ♡ little memories, little moments ♡
+
+    </footer>
+
+
+</div>
+
+</div>
+
+
+</body>
+
+</html>
