@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My Hobbies ♡</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        background:
+            radial-gradient(circle at 20% 10%, rgba(160, 25, 55, 0.25), transparent 30%),
+            radial-gradient(circle at 85% 80%, rgba(110, 15, 40, 0.3), transparent 35%),
+            linear-gradient(135deg, #12080d, #1d0d13 45%, #0f080b);
+
+        color: #f9e9ed;
+        font-family: Georgia, serif;
+
+        overflow-x: hidden;
+    }
+
+    /* dreamy glow in the background */
+
+    body::before {
+
+        position: fixed;
+        top: 8%;
+        left: 5%;
+
+        color: rgba(255, 180, 195, 0.15);
+        font-size: 25px;
+        letter-spacing: 15px;
+
+        animation: float 6s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    body::after {
+        content: "✦  ♡  ✧  ♡  ✦";
+
+        position: fixed;
+        bottom: 10%;
+        right: 4%;
+
+        color: rgba(255, 120, 145, 0.12);
+        font-size: 30px;
+        letter-spacing: 12px;
+
+        animation: float 7s ease-in-out infinite reverse;
+        pointer-events: none;
+    }
+
+    .room {
+        max-width: 650px;
+        margin: auto;
+        padding: 45px 22px;
+        position: relative;
+    }
+
+    /* title */
+
+    h1 {
+        margin-bottom: 10px;
+
+        color: #ff9bad;
+        text-align: center;
+
+        font-size: 38px;
+        letter-spacing: 2px;
+
+        text-shadow:
+            0 0 8px rgba(255, 80, 110, 0.7),
+            0 0 25px rgba(180, 20, 55, 0.5);
+
+        animation: titleGlow 3s ease-in-out infinite;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #c98b98;
+        font-size: 14px;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+    }
+
+    /*  picture */
+
+    .picture {
+        text-align: center;
+        margin: 25px 0 35px;
+    }
+
+    .picture img {
+        width: 190px;
+        height: 190px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+  animation: pictureFloat 5s ease-in-out infinite;
+    }
+
+    /*  main card */
+
+    .box {
+        position: relative;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(70, 15, 30, 0.75),
+                rgba(30, 12, 19, 0.85)
+            );
+
+        border: 1px solid rgba(237, 92, 116, 0.7);
+
+        border-radius: 28px;
+
+        padding: 30px;
+
+        margin-top: 20px;
+
+        line-height: 1.8;
+        text-align: left;
+
+        box-shadow:
+            0 0 25px rgba(170, 25, 55, 0.2),
+            inset 0 0 25px rgba(255, 120, 140, 0.03);
+
+        backdrop-filter: blur(10px);
+
+        overflow: hidden;
+    }
+
+    /* glowing corner */
+
+    .box::before {
+        content: "✦";
+
+        position: absolute;
+        top: 15px;
+        right: 20px;
+
+        color: #ff8095;
+        font-size: 20px;
+
+        text-shadow: 0 0 12px #ff506f;
+    }
+
+    .box::after {
+        content: "";
+
+        position: absolute;
+        width: 120px;
+        height: 120px;
+
+        top: -70px;
+        left: -60px;
+
+        background: #a7193d;
+        opacity: 0.12;
+
+        border-radius: 50%;
+        filter: blur(25px);
+    }
+
+    h2 {
+        color: #ff9aaa;
+        text-align: center;
+
+        font-size: 23px;
+        letter-spacing: 1px;
+
+        margin-top: 0;
+        margin-bottom: 20px;
+
+        text-shadow: 0 0 10px rgba(255, 80, 110, 0.4);
+    }
+
+    ol {
+        margin: 0;
+        padding-left: 25px;
+    }
+
+    li {
+        padding: 8px 10px;
+        margin: 5px 0;
+
+        color: #f6dce1;
+
+        border-radius: 12px;
+
+        transition:
+            background 0.3s ease,
+            transform 0.3s ease,
+            color 0.3s ease;
+    }
+
+    li::marker {
+        color: #e75b76;
+    }
+
+    li:hover {
+        background: rgba(190, 35, 65, 0.15);
+        color: #ffb3c0;
+        transform: translateX(6px);
+
+        text-shadow: 0 0 8px rgba(255, 100, 125, 0.4);
+    }
+
+    /*  back button */
+
+    .back {
+        display: block;
+        width: fit-content;
+
+        margin: 35px auto 10px;
+
+        padding: 12px 32px;
+
+        color: #ff9aaa;
+        text-decoration: none;
+
+        border: 1px solid #c94d68;
+        border-radius: 25px;
+
+        background: rgba(100, 15, 35, 0.2);
+
+        box-shadow:
+            0 0 12px rgba(190, 35, 65, 0.2);
+
+        transition: all 0.3s ease;
+    }
+
+    .back:hover {
+        background: rgba(180, 30, 60, 0.25);
+
+        color: #ffd4dc;
+
+        box-shadow:
+            0 0 20px rgba(230, 70, 100, 0.5);
+
+        transform: translateY(-3px);
+    }
+
+    /* ✨ animations */
+
+    @keyframes float {
+
+        0%, 100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    @keyframes pictureFloat {
+
+        0%, 100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    @keyframes titleGlow {
+
+        0%, 100% {
+            text-shadow:
+                0 0 8px rgba(255, 80, 110, 0.6),
+                0 0 20px rgba(180, 20, 55, 0.3);
+        }
+
+        50% {
+            text-shadow:
+                0 0 12px rgba(255, 100, 130, 0.9),
+                0 0 35px rgba(200, 30, 70, 0.6);
+        }
+    }
+
+    /*  mobile */
+
+    @media (max-width: 500px) {
+
+        .room {
+            padding: 30px 16px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        .picture img {
+            width: 155px;
+            height: 155px;
+        }
+
+        .box {
+            padding: 22px 18px;
+        }
+
+        li {
+            padding: 7px 5px;
+        }
+    }
+
+</style>
+
+</head><body><div class="room">
+
+    <h1>♡ My Hobbies ♡</h1>
+
+    <div class="subtitle">
+        little things that make me happy 
+    </div>
+
+    <div class="picture">
+
+        <img src="dance.gif" alt="Cute picture">
+
+    </div>
+
+    <div class="box">
+
+        <h2>Things I Love 🎀</h2>
+
+        <ol>
+            <li>🎧 Music</li>
+            <li>🎨 Drawing / editing</li>
+            <li>💻 Making little websites</li>
+            <li>🌙 Late-night conversations</li>
+            <li>🐰 Making cute things</li>
+            <li>📷 Taking pictures</li>
+            <li>📚 Reading books</li>
+            <li>🛠️ Crafting</li>
+            <li>😴 Sleeping</li>
+            <li>📘 Learning</li>
+        </ol>
+
+    </div>
+
+    <a href="NewProject.html" class="back">
+        ♡ Back ♡
+    </a>
+    
+    
+
+</div>
+
+</body>
+</html>
