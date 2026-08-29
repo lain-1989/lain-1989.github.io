@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Dreams ♡</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f9dfe5;
+            color: #4a302c;
+            font-family: Georgia, serif;
+        }
+
+        /* LITTLE DOTS AROUND THE PAGE */
+        body::before {
+            content: "•   •   •   •   •   •   •   •";
+            display: block;
+            color: #49322e;
+            font-size: 28px;
+            letter-spacing: 30px;
+            text-align: center;
+            padding: 15px 0;
+            height: 25px;
+            overflow: hidden;
+        }
+
+        .room {
+            max-width: 900px;
+            margin: auto;
+            padding: 0 15px 25px;
+        }
+
+        /* MAIN BROWN FRAME */
+        .page {
+            background: #4a302c;
+            border: 5px solid #38231f;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 0 #6d4942;
+        }
+
+        /* TOP DECORATION */
+        .top {
+            position: relative;
+            padding: 25px 20px 35px;
+            text-align: center;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    #503530 0px,
+                    #503530 5px,
+                    #4a2e2a 6px,
+                    #4a2e2a 12px
+                );
+            border-bottom: 5px solid #35221e;
+        }
+
+        .top::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+            height: 7px;
+            background: #f7c6d0;
+        }
+
+        /* BIG RIBBON */
+        .ribbon {
+            position: relative;
+            display: inline-block;
+            margin-top: 5px;
+            background: #fff8f3;
+            color: #5a4038;
+            padding: 14px 65px;
+            font-size: 30px;
+            font-style: italic;
+            border: 3px solid #e7c8c2;
+            box-shadow: 0 3px 0 #2e1d1a;
+        }
+
+        .ribbon::before,
+        .ribbon::after {
+            content: "🎀";
+            position: absolute;
+            font-size: 35px;
+            top: 5px;
+        }
+
+        .ribbon::before {
+            left: -45px;
+        }
+
+        .ribbon::after {
+            right: -45px;
+        }
+
+        /* LACE STRIP */
+        .lace {
+            height: 45px;
+            background:
+                radial-gradient(circle at 10px 0, transparent 13px, #fff8f3 14px) 0 0 / 28px 28px repeat-x;
+            border-top: 4px solid #fff8f3;
+            border-bottom: 4px solid #e8c6c6;
+        }
+
+        /* MAIN PAPER */
+        .content {
+            margin: 25px;
+            padding: 30px;
+            background: #fffaf5;
+            border: 4px solid #f2ded8;
+            border-radius: 15px;
+            box-shadow: inset 0 0 0 2px #d7b8b0;
+            position: relative;
+        }
+
+        .content::before {
+            content: "♡  ♡  ♡  ♡  ♡  ♡  ♡";
+            display: block;
+            text-align: center;
+            color: #a87576;
+            letter-spacing: 10px;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* TITLE */
+        h1 {
+            text-align: center;
+            color: #b77c83;
+            font-size: 42px;
+            font-style: italic;
+            margin: 5px 0 25px;
+            text-shadow: 1px 1px #ead1cf;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8c6861;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        /* DREAM BOX */
+        .dream {
+            background: #fffdf9;
+            border: 3px solid #dfc4bd;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 3px 3px 0 #ead8d2;
+        }
+
+        .dream::before {
+            content: "୨୧";
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fffaf5;
+            padding: 0 10px;
+            color: #bd8189;
+            font-size: 24px;
+        }
+
+        .dream img {
+            width: 100%;
+            max-width: 280px;
+            display: block;
+            margin: 5px auto 20px;
+            border: 8px solid #fff;
+            outline: 3px solid #c9aaa2;
+            box-shadow: 4px 4px 0 #e1ccc5;
+        }
+
+        .dream h2 {
+            color: #b77c83;
+            font-size: 27px;
+            font-style: italic;
+            margin: 12px 0;
+        }
+
+        .dream h2::before {
+            content: "♡ ";
+        }
+
+        .dream h2::after {
+            content: " ♡";
+        }
+
+        .dream p {
+            color: #634943;
+            line-height: 1.8;
+            font-size: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* SMALL INFO BOXES */
+        .dream-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .mini {
+            background: #f7e4e2;
+            border: 2px dashed #bd9692;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .mini h3 {
+            margin: 0 0 8px;
+            color: #a66e76;
+            font-style: italic;
+        }
+
+        .mini p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* BOTTOM LACE */
+        .bottom-lace {
+            height: 50px;
+            background:
+                radial-gradient(circle at 10px 50px, transparent 14px, #fff8f3 15px)
+                0 0 / 28px 28px repeat-x;
+            border-top: 5px solid #fff8f3;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            display: flex;
+            gap: 15px;
+            padding: 25px;
+            background: #4a302c;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            display: block;
+            min-width: 160px;
+            padding: 15px 20px;
+            background: #fffaf5;
+            color: #594039;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+            border: 3px solid #dfc4bd;
+            outline: 2px dashed #fffaf5;
+            outline-offset: -7px;
+            transition: 0.2s;
+        }
+
+        .nav a:hover {
+            background: #f6c7d0;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            color: #f5d9d8;
+            padding: 0 0 20px;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        /* PHONE */
+        @media (max-width: 600px) {
+
+            .room {
+                padding: 0 8px 15px;
+            }
+
+            .ribbon {
+                font-size: 24px;
+                padding: 12px 35px;
+            }
+
+            .ribbon::before,
+            .ribbon::after {
+                font-size: 25px;
+            }
+
+            .ribbon::before {
+                left: -30px;
+            }
+
+            .ribbon::after {
+                right: -30px;
+            }
+
+            .content {
+                margin: 15px;
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .dream-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                padding: 20px 15px;
+            }
+
+            .nav a {
+                width: 100%;
+            }
+            a{ 
+                color:#f6c7d0;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="room">
+
+        <div class="page">
+
+            <!-- TOP -->
+            <div class="top">
+
+                <div class="ribbon">
+                    Welcome to...
+                </div>
+
+            </div>
+
+            <div class="lace"></div>
+
+
+            <!-- MAIN CONTENT -->
+            <div class="content">
+
+                <h1>♡ My Dreams ♡</h1>
+
+                <p class="subtitle">
+                    little things I hope to achieve someday... 🎀
+                </p>
+
+
+                <!-- DREAM 1 -->
+                <div class="dream">
+
+                    <img src="dance.gif" alt="My dream">
+
+                    <h2>Something I Dream About</h2>
+
+                    <p>
+My simple dream is to have a decent job, beautiful house in the countryside with my future husband, our two pets, and my own garden.  
+Maybe even a small farm someday.  
+A home filled with love, laughter, and warmth —  
+A place where everyone who steps inside feels special and loved.
+                    </p>
+
+                </div>
+
+
+                <!-- DREAM 2 -->
+                <div class="dream">
+
+                    <h2>Another Little Dream</h2>
+
+                    <p>
+                I dream of exploring the world with someone i love in the future.
+                    </p>
+
+                </div>
+
+
+                <!-- LITTLE BOXES -->
+                <div class="dream-list">
+
+                    <div class="mini">
+                        <h3>♡ Someday ♡</h3>
+                        <p>
+                            Someday, One day I'll achieve all my simple but Happy dreams.
+                        </p>
+                    </div>
+
+                    <div class="mini">
+                        <h3>♡ My Goal ♡</h3>
+                        <p>
+                        •finish school 
+                    <br>
+                    •get a job<br>
+                    •save up money<br>
+                    •etc
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-lace"></div>
+
+
+            <!-- NAVIGATION -->
+            <div class="nav">
+
+                <a href="NewProject.html">
+                    ♡ Home
+                </a>
+
+            </div>
+
+<div class="footer">
+
+    <p>
+        <a href="https://wa.me/639685697812" target="_blank">
+            Contact me on WSP
+        </a>
+    </p>
+
+    <p>
+        You can also add me on
+        <a href="https://www.facebook.com/profile.php?id=61590807933366"
+           target="_blank">
+            Facebook
+        </a>
+    </p>
+    </div>
+
+</body>
+
+</html>
