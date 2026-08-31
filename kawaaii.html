@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About me ♡</title>
+    <title>About me</title>
 
     <style>
-
         body {
             margin: 0;
-            background: #fff5fa;
+
+            /* PINKU.JPG BACKGROUND */
+            background-image: url("pinku.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
             font-family: "Trebuchet MS", sans-serif;
             color: #e99ab8;
         }
 
         p, li {
-            font-family: Georgia, serif;
+            font-family: Georgia;
             text-align: left;
         }
 
@@ -25,14 +27,16 @@
             width: 90%;
             max-width: 950px;
             margin: 30px auto;
-            background: #fffafd;
+
+            /* transparent*/
+            background: rgba(255, 250, 253, 0.50);
+
             border: 3px solid #f3b5cf;
             border-radius: 25px;
             overflow: hidden;
         }
 
         /* HEADER */
-
         header {
             text-align: center;
             padding: 35px 20px 15px;
@@ -53,13 +57,11 @@
         }
 
         /* NAVIGATION */
-
         nav {
             display: flex;
             justify-content: center;
             gap: 15px;
             padding: 15px;
-
             border-top: 2px dashed #f3bfd4;
             border-bottom: 2px dashed #f3bfd4;
         }
@@ -68,12 +70,9 @@
             text-decoration: none;
             color: #df8eaf;
             background: #fff;
-
             border: 2px solid #f1b3cc;
             border-radius: 30px;
-
             padding: 10px 35px;
-
             box-shadow: 0 3px 8px #f8dce8;
         }
 
@@ -82,7 +81,6 @@
         }
 
         /* PROFILE */
-
         .profile {
             display: flex;
             gap: 30px;
@@ -94,7 +92,6 @@
             width: 210px;
             height: 210px;
             object-fit: cover;
-
             border-radius: 50%;
             border: 4px solid #f2b3cc;
         }
@@ -104,12 +101,10 @@
         }
 
         /* CONTENT */
-
         .content {
             display: flex;
             gap: 30px;
             padding: 30px;
-
             border-top: 15px solid #f8d4e2;
         }
 
@@ -119,7 +114,6 @@
 
         .gallery {
             width: 330px;
-
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
@@ -128,18 +122,14 @@
         .gallery img {
             width: 100%;
             height: 130px;
-
             object-fit: cover;
-
             border: 3px solid #f3c1d5;
         }
 
         /* BACK BUTTON */
-
         .back {
             display: block;
             width: fit-content;
-
             margin: 30px auto;
             padding: 12px 30px;
 
@@ -148,20 +138,12 @@
 
             border: 1px solid #f7afbb;
             border-radius: 20px;
-
-            background: #fffafd;
-        }
-
-        .back:hover {
-            background: #ffeaf3;
         }
 
         /* FOOTER */
-
         footer {
             text-align: center;
             padding: 25px;
-
             border-top: 2px dashed #f0b5ce;
 
             background:
@@ -175,26 +157,10 @@
         }
 
         /* PHONE */
-
         @media (max-width: 700px) {
-
-            .page {
-                width: 92%;
-                margin: 15px auto;
-            }
-
             .profile,
             .content {
                 flex-direction: column;
-            }
-
-            .profile {
-                text-align: center;
-            }
-
-            .profile img {
-                width: 180px;
-                height: 180px;
             }
 
             .gallery {
@@ -203,74 +169,43 @@
 
             nav {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            nav a {
-                width: 70%;
-                text-align: center;
-            }
-
-            .back {
-                margin: 25px auto;
             }
         }
-
     </style>
 </head>
-
 
 <body>
 
 <div class="page">
 
     <header>
-
-        <div class="decoration">
-            ♡ ✿ ♡ ✿ ♡
-        </div>
-
-        <h1>About me! ♡</h1>
-
+        <div class="decoration">♡ ✿ ♡ ✿ ♡</div>
+        <h1>About me!♡</h1>
     </header>
-
 
     <section class="profile">
 
-        <img src="2bfe67249a27ab893868d152a07242bd.gif">
+        <img src="hello.gif">
 
         <div class="info">
-
             <h2>Welcome! ♡</h2>
 
             <div class="text-box">
-
                 <h2>My Name is Lain</h2>
-
                 <p>I don't usually use my real name online</p>
-
                 <p>You can call me Lain ♡</p>
 
-
                 <h3>Birthday</h3>
-
                 <p>September 29</p>
-
 
                 <h2>♡ My Favorites</h2>
 
                 <ol>
-
-                    <li>Color: DarkRed / pink / blue</li>
-
+                    <li>Color: DarkRed/pink/blue</li>
                     <li>Food: Depends</li>
-
                     <li>Song: None</li>
-
                     <li>Movie/series: The Matrix</li>
-
                     <li>Animal: Horse</li>
-
                     <li>
                         Season:<br>
                         Cool rainy days<br>
@@ -278,15 +213,11 @@
                         Lush green scenery<br>
                         Cozy atmosphere
                     </li>
-
                 </ol>
-
             </div>
-
         </div>
 
     </section>
-
 
     <section class="content">
 
@@ -300,7 +231,6 @@
                 memories of things that matter to me. ♡
             </p>
 
-
             <h2>♡ My Current Era</h2>
 
             <p>
@@ -309,31 +239,20 @@
 
         </div>
 
-
         <div class="gallery">
-
-            <img src="8c84b9407b21074b8aa423024d28dc78.jpg">
-
-            <img src="4f026a7dafd0d80371f3e0f9ccbd4bda.jpg">
-
-            <img src="f4f983ca4badedf9707147e9a5206dbd.jpg">
-
-            <img src="8c84b9407b21074b8aa423024d28dc78.jpg">
-
+            <img src="sisu.jpg">
+            <img src="blue.jpg">
+            <img src="book.jpg">
+            <img src="sese.jpg">
         </div>
 
+        <a href="NewProject.html" class="back">
+            ♡ Back ♡
+        </a>
+
     </section>
-
-
-    <!-- BACK TO MAIN PAGE -->
-
-    <a href="NewProject.html" class="back">
-        ♡ Back ♡
-    </a>
-
 
 </div>
 
 </body>
-
 </html>
