@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <!-- PHONE SCREEN FIX -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>About me</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
 
@@ -28,7 +37,7 @@
             max-width: 950px;
             margin: 30px auto;
 
-            /* transparent*/
+            /* transparent */
             background: rgba(255, 250, 253, 0.50);
 
             border: 3px solid #f3b5cf;
@@ -156,21 +165,170 @@
                 );
         }
 
-        /* PHONE */
+
+        /* ========================= */
+        /* PHONE VERSION */
+        /* ========================= */
+
         @media (max-width: 700px) {
-            .profile,
-            .content {
-                flex-direction: column;
+
+            .page {
+                width: 92%;
+                max-width: none;
+                margin: 20px auto;
             }
 
-            .gallery {
+            /* HEADER */
+            header {
+                padding: 25px 15px 15px;
+            }
+
+            .decoration {
+                font-size: 18px;
+                letter-spacing: 8px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+
+            /* PROFILE */
+
+            .profile {
+                flex-direction: column;
+                gap: 18px;
+                padding: 25px 20px;
+                align-items: center;
+            }
+
+            .profile img {
+                width: 145px;
+                height: 145px;
+            }
+
+            .info {
                 width: 100%;
             }
 
-            nav {
+            .info h2 {
+                font-size: 17px;
+            }
+
+            .info h3 {
+                font-size: 14px;
+            }
+
+            .info p,
+            .info li {
+                font-size: 12px;
+                line-height: 1.35;
+            }
+
+
+            /* CONTENT */
+
+            .content {
                 flex-direction: column;
+                gap: 25px;
+                padding: 25px 20px;
+
+                border-top: 10px solid #f8d4e2;
+            }
+
+            .terms {
+                width: 100%;
+            }
+
+            .terms h2 {
+                font-size: 17px;
+            }
+
+            .terms p {
+                font-size: 12px;
+                line-height: 1.45;
+            }
+
+
+            /* GALLERY */
+
+            .gallery {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .gallery img {
+                height: 95px;
+                border: 2px solid #f3c1d5;
+            }
+
+
+            /* BACK */
+
+            .back {
+                margin: 25px auto 30px;
+                padding: 9px 22px;
+                font-size: 12px;
             }
         }
+
+
+        /* SMALL PHONE */
+
+        @media (max-width: 400px) {
+
+            .page {
+                width: 94%;
+                margin: 15px auto;
+            }
+
+            .profile {
+                padding: 22px 16px;
+            }
+
+            .profile img {
+                width: 125px;
+                height: 125px;
+            }
+
+            .info h2 {
+                font-size: 15px;
+            }
+
+            .info h3 {
+                font-size: 13px;
+            }
+
+            .info p,
+            .info li {
+                font-size: 11px;
+            }
+
+            .content {
+                padding: 22px 16px;
+            }
+
+            .terms h2 {
+                font-size: 15px;
+            }
+
+            .terms p {
+                font-size: 11px;
+            }
+
+            .gallery {
+                max-width: 280px;
+            }
+
+            .gallery img {
+                height: 82px;
+            }
+        }
+
     </style>
 </head>
 
