@@ -1,6 +1,15 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My Hobbies ♡</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Hobbies ♡</title>
+
 
 <style>
 
@@ -8,68 +17,127 @@
         box-sizing: border-box;
     }
 
+
+    /*BACKGROUND
+      */
+
     body {
+
         margin: 0;
+
         min-height: 100vh;
 
-        background:
-            radial-gradient(circle at 20% 10%, rgba(160, 25, 55, 0.25), transparent 30%),
-            radial-gradient(circle at 85% 80%, rgba(110, 15, 40, 0.3), transparent 35%),
-            linear-gradient(135deg, #12080d, #1d0d13 45%, #0f080b);
+        background-image:
+            radial-gradient(
+                circle at 20% 10%,
+                rgba(160, 25, 55, 0.25),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(110, 15, 40, 0.3),
+                transparent 35%
+            ),
+            linear-gradient(
+                135deg,
+                rgba(18, 8, 13, 0.65),
+                rgba(29, 13, 19, 0.72),
+                rgba(15, 8, 11, 0.75)
+            ),
+            url("27cfb42723a68af403cc6594ea96cb0e.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
 
         color: #f9e9ed;
+
         font-family: Georgia, serif;
 
         overflow-x: hidden;
     }
 
-    /* dreamy glow in the background */
+
+    /*   DREAMY DECORATION*/
 
     body::before {
 
+        content: "♡  ✦  ♡  ✧";
+
         position: fixed;
+
         top: 8%;
         left: 5%;
 
         color: rgba(255, 180, 195, 0.15);
-        font-size: 25px;
-        letter-spacing: 15px;
+
+        font-size: 22px;
+
+        letter-spacing: 12px;
 
         animation: float 6s ease-in-out infinite;
+
         pointer-events: none;
+
+        z-index: 0;
     }
 
+
     body::after {
+
         content: "✦  ♡  ✧  ♡  ✦";
 
         position: fixed;
+
         bottom: 10%;
         right: 4%;
 
         color: rgba(255, 120, 145, 0.12);
-        font-size: 30px;
-        letter-spacing: 12px;
+
+        font-size: 25px;
+
+        letter-spacing: 10px;
 
         animation: float 7s ease-in-out infinite reverse;
+
         pointer-events: none;
+
+        z-index: 0;
     }
+
+
+    /*  MAIN AREA*/
 
     .room {
-        max-width: 650px;
+
+        width: 90%;
+
+        max-width: 600px;
+
         margin: auto;
-        padding: 45px 22px;
+
+        padding: 30px 18px 25px;
+
         position: relative;
+
+        z-index: 1;
     }
 
-    /* title */
+
+    /*  TITLE
+       */
 
     h1 {
-        margin-bottom: 10px;
+
+        margin: 5px 0 8px;
 
         color: #ff9bad;
+
         text-align: center;
 
-        font-size: 38px;
+        font-size: 32px;
+
         letter-spacing: 2px;
 
         text-shadow:
@@ -79,120 +147,161 @@
         animation: titleGlow 3s ease-in-out infinite;
     }
 
+
     .subtitle {
+
         text-align: center;
+
         color: #c98b98;
-        font-size: 14px;
-        letter-spacing: 3px;
-        margin-bottom: 30px;
+
+        font-size: 12px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 20px;
     }
 
-    /*  picture */
+
+    /*   PICTURE
+      */
 
     .picture {
+
         text-align: center;
-        margin: 25px 0 35px;
+
+        margin: 18px 0 25px;
     }
 
+
     .picture img {
-        width: 190px;
-        height: 190px;
+
+        width: 150px;
+
+        height: 150px;
 
         object-fit: cover;
 
         border-radius: 50%;
-  animation: pictureFloat 5s ease-in-out infinite;
-    }
 
-    /*  main card */
-
-    .box {
-        position: relative;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(70, 15, 30, 0.75),
-                rgba(30, 12, 19, 0.85)
-            );
-
-        border: 1px solid rgba(237, 92, 116, 0.7);
-
-        border-radius: 28px;
-
-        padding: 30px;
-
-        margin-top: 20px;
-
-        line-height: 1.8;
-        text-align: left;
+        border: 2px solid rgba(237, 92, 116, 0.55);
 
         box-shadow:
-            0 0 25px rgba(170, 25, 55, 0.2),
-            inset 0 0 25px rgba(255, 120, 140, 0.03);
+            0 0 18px rgba(190, 35, 65, 0.3);
 
-        backdrop-filter: blur(10px);
-
-        overflow: hidden;
+        animation: pictureFloat 5s ease-in-out infinite;
     }
 
+
+    /*  MAIN CARD*/
+
+.box {
+    background: rgba(255, 220, 230, 0.12);
+
+    border: 1px solid rgba(237, 92, 116, 0.6);
+
+    border-radius: 22px;
+
+    padding: 22px;
+
+    line-height: 1.6;
+    text-align: left;
+
+    box-shadow:
+        0 0 25px rgba(170, 25, 55, 0.2),
+        inset 0 0 25px rgba(255, 180, 195, 0.05);
+
+    backdrop-filter: blur(8px);
+
+    overflow: hidden;
+}
     /* glowing corner */
 
     .box::before {
+
         content: "✦";
 
         position: absolute;
-        top: 15px;
-        right: 20px;
+
+        top: 12px;
+
+        right: 17px;
 
         color: #ff8095;
-        font-size: 20px;
+
+        font-size: 17px;
 
         text-shadow: 0 0 12px #ff506f;
     }
 
+
     .box::after {
+
         content: "";
 
         position: absolute;
-        width: 120px;
-        height: 120px;
 
-        top: -70px;
-        left: -60px;
+        width: 100px;
+
+        height: 100px;
+
+        top: -55px;
+
+        left: -50px;
 
         background: #a7193d;
+
         opacity: 0.12;
 
         border-radius: 50%;
+
         filter: blur(25px);
     }
 
+
+    /*  BOX TITLE
+       */
+
     h2 {
+
         color: #ff9aaa;
+
         text-align: center;
 
-        font-size: 23px;
+        font-size: 20px;
+
         letter-spacing: 1px;
 
         margin-top: 0;
-        margin-bottom: 20px;
 
-        text-shadow: 0 0 10px rgba(255, 80, 110, 0.4);
+        margin-bottom: 15px;
+
+        text-shadow:
+            0 0 10px rgba(255, 80, 110, 0.4);
     }
+
+
+    /*HOBBY LIST
+       */
 
     ol {
+
         margin: 0;
-        padding-left: 25px;
+
+        padding-left: 24px;
     }
 
+
     li {
-        padding: 8px 10px;
-        margin: 5px 0;
+
+        padding: 6px 8px;
+
+        margin: 3px 0;
 
         color: #f6dce1;
 
-        border-radius: 12px;
+        border-radius: 10px;
+
+        font-size: 14px;
 
         transition:
             background 0.3s ease,
@@ -200,35 +309,50 @@
             color 0.3s ease;
     }
 
+
     li::marker {
+
         color: #e75b76;
     }
 
-    li:hover {
-        background: rgba(190, 35, 65, 0.15);
-        color: #ffb3c0;
-        transform: translateX(6px);
 
-        text-shadow: 0 0 8px rgba(255, 100, 125, 0.4);
+    li:hover {
+
+        background:
+            rgba(190, 35, 65, 0.15);
+
+        color: #ffb3c0;
+
+        transform: translateX(5px);
+
+        text-shadow:
+            0 0 8px rgba(255, 100, 125, 0.4);
     }
 
-    /*  back button */
+
+    /*   BACK BUTTON
+     */
 
     .back {
+
         display: block;
+
         width: fit-content;
 
-        margin: 35px auto 10px;
+        margin: 25px auto 5px;
 
-        padding: 12px 32px;
+        padding: 9px 25px;
 
         color: #ff9aaa;
+
         text-decoration: none;
 
         border: 1px solid #c94d68;
-        border-radius: 25px;
 
-        background: rgba(100, 15, 35, 0.2);
+        border-radius: 22px;
+
+        background:
+            rgba(100, 15, 35, 0.2);
 
         box-shadow:
             0 0 12px rgba(190, 35, 65, 0.2);
@@ -236,8 +360,11 @@
         transition: all 0.3s ease;
     }
 
+
     .back:hover {
-        background: rgba(180, 30, 60, 0.25);
+
+        background:
+            rgba(180, 30, 60, 0.25);
 
         color: #ffd4dc;
 
@@ -247,7 +374,8 @@
         transform: translateY(-3px);
     }
 
-    /* ✨ animations */
+
+    /*  ANIMARTION */
 
     @keyframes float {
 
@@ -260,6 +388,7 @@
         }
     }
 
+
     @keyframes pictureFloat {
 
         0%, 100% {
@@ -267,93 +396,227 @@
         }
 
         50% {
-            transform: translateY(-8px);
+            transform: translateY(-7px);
         }
     }
+
 
     @keyframes titleGlow {
 
         0%, 100% {
+
             text-shadow:
                 0 0 8px rgba(255, 80, 110, 0.6),
                 0 0 20px rgba(180, 20, 55, 0.3);
         }
 
         50% {
+
             text-shadow:
                 0 0 12px rgba(255, 100, 130, 0.9),
                 0 0 35px rgba(200, 30, 70, 0.6);
         }
     }
 
-    /*  mobile */
+
+    /* PHONE*/
 
     @media (max-width: 500px) {
 
         .room {
-            padding: 30px 16px;
+
+            width: 92%;
+
+            padding: 25px 10px 20px;
         }
+
 
         h1 {
-            font-size: 30px;
+
+            font-size: 27px;
+
+            letter-spacing: 1px;
         }
+
+
+        .subtitle {
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .picture {
+
+            margin: 15px 0 20px;
+        }
+
 
         .picture img {
-            width: 155px;
-            height: 155px;
+
+            width: 125px;
+
+            height: 125px;
         }
+
 
         .box {
-            padding: 22px 18px;
+
+            padding: 18px 15px;
+
+            border-radius: 18px;
         }
 
+
+        h2 {
+
+            font-size: 17px;
+
+            margin-bottom: 12px;
+        }
+
+
         li {
-            padding: 7px 5px;
+
+            font-size: 12px;
+
+            padding: 5px 5px;
+
+            margin: 2px 0;
+        }
+
+
+        .back {
+
+            margin-top: 20px;
+
+            padding: 8px 22px;
+
+            font-size: 13px;
+        }
+    }
+
+
+    /* VERY SMALL PHONES
+       */
+
+    @media (max-width: 360px) {
+
+        .room {
+
+            width: 94%;
+
+            padding-left: 7px;
+
+            padding-right: 7px;
+        }
+
+
+        h1 {
+
+            font-size: 24px;
+        }
+
+
+        .picture img {
+
+            width: 110px;
+
+            height: 110px;
+        }
+
+
+        .box {
+
+            padding: 16px 13px;
+        }
+
+
+        li {
+
+            font-size: 11px;
         }
     }
 
 </style>
 
-</head><body><div class="room">
+</head>
 
-    <h1>♡ My Hobbies ♡</h1>
+
+<body>
+
+<div class="room">
+
+
+    <h1>
+        ♡ My Hobbies ♡
+    </h1>
+
 
     <div class="subtitle">
-        little things that make me happy 
+        little things that make me happy
     </div>
+
 
     <div class="picture">
 
-        <img src="5bd8e9e87a7bdfd0716194b8219b0f1b.gif" alt="Cute picture">
+        <img
+            src="dance.gif"
+            alt="Cute picture">
 
     </div>
 
+
     <div class="box">
 
-        <h2>Things I Love 🎀</h2>
+        <h2>
+            Things I Love 🎀
+        </h2>
+
 
         <ol>
+
             <li>🎧 Music</li>
+
             <li>🎨 Drawing / editing</li>
+
             <li>💻 Making little websites</li>
+
             <li>🌙 Late-night conversations</li>
+
             <li>🐰 Making cute things</li>
+
             <li>📷 Taking pictures</li>
+
             <li>📚 Reading books</li>
+
             <li>🛠️ Crafting</li>
+
             <li>😴 Sleeping</li>
+
             <li>📘 Learning</li>
+<li>🥋 Martial Arts</li>
+<li>🧳 Traveling </li>
+      
         </ol>
 
     </div>
 
-    <a href="NewProject.html" class="back">
+
+    <a
+        href="NewProject.html"
+        class="back">
+
         ♡ Back ♡
+
     </a>
-    
-    
+
 
 </div>
 
 </body>
+
 </html>
